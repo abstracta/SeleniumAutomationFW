@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke test Suite" verbose="1" >
+    <test name="Smoke Tests"   >
+        <packages>
+            <package name="tests.smoke" />
+        </packages>
+    </test>
+</suite>
