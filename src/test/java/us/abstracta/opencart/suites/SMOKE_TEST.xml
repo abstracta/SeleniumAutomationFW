@@ -3,7 +3,7 @@
 <suite name="Smoke test Suite" verbose="1" >
     <test name="Smoke Tests"   >
         <packages>
-            <package name="tests.smoke" />
+            <package name="us.abstracta.opencart.tests.smoke" />
         </packages>
     </test>
 </suite>

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression visual test Suite" verbose="1" >
+    <test name="Regression Visual Tests">
+        <classes>
+            <class name="us.abstracta.opencart.tests.VisualRegression" />
+        </classes>
+    </test>
+</suite>
