@@ -25,6 +25,4 @@ public class Cart extends OpencartBaseElement {
         mainElement.findElement(By.linkText(" View Cart")).click();
         addWait(Wait.SHORT_WAIT);
     }
-
-
 }

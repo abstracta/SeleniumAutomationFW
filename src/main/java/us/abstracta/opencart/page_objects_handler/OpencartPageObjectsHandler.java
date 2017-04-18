@@ -62,5 +62,4 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
         }
         return cart;
     }
-
 }

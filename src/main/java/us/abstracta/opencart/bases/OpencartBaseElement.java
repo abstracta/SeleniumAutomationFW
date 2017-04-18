@@ -16,5 +16,4 @@ public class OpencartBaseElement extends BaseElement{
     public OpencartPageObjectsHandler getPageObjectsHandler() {
         return pageObjectsHandler;
     }
-
 }

@@ -22,18 +22,18 @@ public class BaseTest {
     protected WebDriver driver;
     protected Eyes eyes;
     private static GetProperties properties = new GetProperties();
-    private static String BROWSER = properties.getString("BROWSER").toUpperCase();;
-    private static String APP_NAME = properties.getString("APP_NAME");
-    private static String API_KEY = properties.getString("API_KEY");
+    private static String browser = properties.getString("BROWSER").toUpperCase();;
+    private static String appName = properties.getString("APP_NAME");
+    private static String apiKey = properties.getString("API_KEY");
     private BatchInfo batch;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(Method method) throws Exception {
-        BrowserType browserType = BrowserType.valueOf(BROWSER.toUpperCase());
+        BrowserType browserType = BrowserType.valueOf(browser.toUpperCase());
         DesiredCapabilities capabilities;
         String baseline = method.getName();
-        String batch_name = (!System.getenv("JOB_NAME").isEmpty())? System.getenv("JOB_NAME") : "Local";
-        batch = new BatchInfo(batch_name);
+        String batchName = (!System.getenv("JOB_NAME").isEmpty())? System.getenv("JOB_NAME") : "Local";
+        batch = new BatchInfo(batchName);
         batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
         configureApplitoolsEyes();
         switch (browserType){
@@ -68,7 +68,7 @@ public class BaseTest {
         }
         try {
             driver.manage().window().maximize();
-            driver = eyes.open(driver, APP_NAME, baseline);
+            driver = eyes.open(driver, appName, baseline);
             navigateToHome();
         }
         catch (Exception e){
@@ -83,7 +83,7 @@ public class BaseTest {
 
     private void configureApplitoolsEyes(){
         eyes = new Eyes();
-        eyes.setApiKey(API_KEY);
+        eyes.setApiKey(apiKey);
         eyes.setMatchLevel(MatchLevel.LAYOUT2);
         eyes.setSaveNewTests(false);
         eyes.setBatch(batch);
@@ -99,5 +99,4 @@ public class BaseTest {
             driver.quit();
         }
     }
-
 }

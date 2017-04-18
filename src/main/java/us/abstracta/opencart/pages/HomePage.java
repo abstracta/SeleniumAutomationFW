@@ -1,6 +1,5 @@
 package us.abstracta.opencart.pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import us.abstracta.opencart.bases.OpencartBasePage;

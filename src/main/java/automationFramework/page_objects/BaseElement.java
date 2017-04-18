@@ -35,5 +35,4 @@ public class BaseElement {
     public List<WebElement> findElements(final By locator){
         return WebDriverUtils.findElements(this.driver, locator);
     }
-
 }

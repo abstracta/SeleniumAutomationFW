@@ -1,6 +1,5 @@
 package us.abstracta.opencart.pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import us.abstracta.opencart.bases.OpencartBasePage;
@@ -21,5 +20,4 @@ public class SearchResultPage extends OpencartBasePage{
     public By getPageLoadedLocator() {
         return By.xpath("//title[contains(text(),'Search - ')]");
     }
-
 }
