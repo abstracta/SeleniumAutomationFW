@@ -1,4 +1,4 @@
-package automation_framework.utils.datatypes;
+package automationFramework.utils.datatypes;
 
 public enum BrowserType {
     FIREFOX,

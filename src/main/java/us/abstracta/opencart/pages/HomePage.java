@@ -8,8 +8,8 @@ import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
 
 public class HomePage extends OpencartBasePage{
 
-    public HomePage(WebDriver _driver, OpencartPageObjectsHandler _handler) {
-        super(_driver, _handler);
+    public HomePage(WebDriver driver, OpencartPageObjectsHandler handler) {
+        super(driver, handler);
         if(!this.isLoaded()){
             throw new IllegalStateException("This is not HomePage");
         }

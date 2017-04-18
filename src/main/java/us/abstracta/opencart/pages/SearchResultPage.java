@@ -10,8 +10,8 @@ public class SearchResultPage extends OpencartBasePage{
 
     private Header header;
 
-    public SearchResultPage(WebDriver _driver, OpencartPageObjectsHandler _handler) {
-        super(_driver, _handler);
+    public SearchResultPage(WebDriver driver, OpencartPageObjectsHandler handler) {
+        super(driver, handler);
         header = getPageObjectsHandler().getHeader();
         if(!this.isLoaded()){
             throw new IllegalStateException("This is not HomePage");

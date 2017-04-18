@@ -1,11 +1,11 @@
-package automation_framework.tests;
+package automationFramework.tests;
 
-import automation_framework.utils.GetProperties;
+import automationFramework.utils.GetProperties;
 import com.applitools.eyes.BatchInfo;
 import com.applitools.eyes.Eyes;
 import com.applitools.eyes.MatchLevel;
 import org.openqa.selenium.WebDriver;
-import automation_framework.utils.datatypes.BrowserType;
+import automationFramework.utils.datatypes.BrowserType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;

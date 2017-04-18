@@ -1,6 +1,6 @@
 package us.abstracta.opencart.page_objects_handler;
 
-import automation_framework.handlers.PageObjectsHandler;
+import automationFramework.handlers.PageObjectsHandler;
 import com.applitools.eyes.Eyes;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -18,13 +18,13 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
     private Cart cart;
     private SearchResultPage searchResultPage;
 
-    protected OpencartPageObjectsHandler(WebDriver _driver, Eyes _eyes) {
-        super(_driver, _eyes);
+    protected OpencartPageObjectsHandler(WebDriver driver, Eyes eyes) {
+        super(driver, eyes);
     }
 
-    public static OpencartPageObjectsHandler getInstance(WebDriver _driver, Eyes _eyes){
+    public static OpencartPageObjectsHandler getInstance(WebDriver driver, Eyes eyes){
         if (instance == null){
-            instance = new OpencartPageObjectsHandler(_driver, _eyes);
+            instance = new OpencartPageObjectsHandler(driver, eyes);
         }
         return instance;
     }

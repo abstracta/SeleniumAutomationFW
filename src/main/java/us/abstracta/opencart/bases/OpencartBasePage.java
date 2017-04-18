@@ -1,6 +1,6 @@
 package us.abstracta.opencart.bases;
 
-import automation_framework.page_objects.BasePage;
+import automationFramework.page_objects.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
@@ -15,9 +15,9 @@ public abstract class OpencartBasePage extends BasePage {
     protected Header header;
     protected Cart cart;
 
-    public OpencartBasePage(WebDriver _driver, OpencartPageObjectsHandler _handler) {
-        super(_driver);
-        OpencartBasePage.pageObjectsHandler = _handler;
+    public OpencartBasePage(WebDriver driver, OpencartPageObjectsHandler handler) {
+        super(driver);
+        OpencartBasePage.pageObjectsHandler = handler;
         header = getPageObjectsHandler().getHeader();
         cart = getPageObjectsHandler().getCart();
     }
@@ -34,8 +34,8 @@ public abstract class OpencartBasePage extends BasePage {
         return header.goToHome();
     }
 
-    public SearchResultPage search(String _item){
-        return header.search(_item);
+    public SearchResultPage search(String item){
+        return header.search(item);
     }
 
     public Cart showCart(){

@@ -1,6 +1,6 @@
 package us.abstracta.opencart.pages;
 
-import automation_framework.utils.datatypes.Wait;
+import automationFramework.utils.datatypes.Wait;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +22,8 @@ public class Header extends OpencartBaseElement {
     @FindBy(how = How.CSS, using = "#cart button")
     WebElement cartButton;
 
-    public Header(WebDriver _driver, OpencartPageObjectsHandler _instance) {
-        super(_driver, _instance);
+    public Header(WebDriver driver, OpencartPageObjectsHandler instance) {
+        super(driver, instance);
     }
 
     public HomePage goToHome(){
@@ -32,8 +32,8 @@ public class Header extends OpencartBaseElement {
         return getPageObjectsHandler().getHomePage();
     }
 
-    public SearchResultPage search(String _product){
-        sendText(searchText, _product);
+    public SearchResultPage search(String product){
+        sendText(searchText, product);
         searchButton.click();
         addWait(Wait.SHORT_WAIT);
         return getPageObjectsHandler().getSearchResultPage();

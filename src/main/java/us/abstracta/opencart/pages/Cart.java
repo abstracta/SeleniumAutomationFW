@@ -1,6 +1,6 @@
 package us.abstracta.opencart.pages;
 
-import automation_framework.utils.datatypes.Wait;
+import automationFramework.utils.datatypes.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

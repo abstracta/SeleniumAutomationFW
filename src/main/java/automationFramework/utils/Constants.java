@@ -1,4 +1,4 @@
-package automation_framework.utils;
+package automationFramework.utils;
 
 public class Constants {
 
