@@ -3,7 +3,7 @@
 <suite name="Regression test Suite" verbose="1" >
     <test name="Regression Tests"   >
         <packages>
-            <package name="tests.*" />
+            <package name="us.abstracta.opencart.tests.*" />
         </packages>
     </test>
 </suite>
