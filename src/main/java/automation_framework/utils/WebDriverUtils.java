@@ -1,10 +1,15 @@
 package automation_framework.utils;
 
+import automation_framework.utils.datatypes.Wait;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static automation_framework.utils.Constants.LONG_TIMEOUT;
+import static automation_framework.utils.Constants.SHORT_TIMEOUT;
+import static automation_framework.utils.Constants.TIMEOUT;
 
 public class WebDriverUtils {
 
@@ -23,6 +28,23 @@ public class WebDriverUtils {
 	
 	public static void waitTime(WebDriver _driver, int _time){
         _driver.manage().timeouts().implicitlyWait(_time, TimeUnit.SECONDS);
+    }
+
+    public static void addWait(WebDriver _driver, Wait _wait){
+        switch (_wait){
+            case LONG_WAIT:
+                waitTime(_driver, LONG_TIMEOUT);
+                break;
+            case MEDIUM_WAIT:
+                waitTime(_driver, TIMEOUT);
+                break;
+            case SHORT_WAIT:
+                waitTime(_driver, SHORT_TIMEOUT);
+                break;
+            default:
+                waitTime(_driver, SHORT_TIMEOUT);
+                break;
+        }
     }
 
     public static WebElement findElement(WebDriver _driver, final By _locator){

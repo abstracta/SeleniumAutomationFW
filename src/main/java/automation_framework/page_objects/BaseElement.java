@@ -21,20 +21,7 @@ public class BaseElement {
     }
 
     public void addWait(Wait _wait){
-        switch (_wait){
-			case LONG_WAIT:
-                WebDriverUtils.waitTime(this.driver, LONG_TIMEOUT);
-                break;
-            case MEDIUM_WAIT:
-                WebDriverUtils.waitTime(this.driver, TIMEOUT);
-                break;
-            case SHORT_WAIT:
-                WebDriverUtils.waitTime(this.driver, SHORT_TIMEOUT);
-                break;
-            default:
-                WebDriverUtils.waitTime(this.driver, SHORT_TIMEOUT);
-                break;
-        }
+        WebDriverUtils.addWait(this.driver, _wait);
     }
 
     public void clear(WebElement _element){
