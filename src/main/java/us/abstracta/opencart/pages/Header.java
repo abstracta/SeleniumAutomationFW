@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import us.abstracta.opencart.bases.OpencartBaseElement;
-import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
+import us.abstracta.opencart.pageObjectsHandler.OpencartPageObjectsHandler;
 
 public class Header extends OpencartBaseElement {
 

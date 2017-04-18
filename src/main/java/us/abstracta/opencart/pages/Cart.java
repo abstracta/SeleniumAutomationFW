@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import us.abstracta.opencart.bases.OpencartBaseElement;
-import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
+import us.abstracta.opencart.pageObjectsHandler.OpencartPageObjectsHandler;
 
 public class Cart extends OpencartBaseElement {
 

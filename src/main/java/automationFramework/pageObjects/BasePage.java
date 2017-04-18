@@ -1,4 +1,4 @@
-package automationFramework.page_objects;
+package automationFramework.pageObjects;
 
 import automationFramework.utils.GetProperties;
 import automationFramework.utils.WebDriverUtils;

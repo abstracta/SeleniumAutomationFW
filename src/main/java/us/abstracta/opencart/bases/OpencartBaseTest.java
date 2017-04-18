@@ -2,7 +2,7 @@ package us.abstracta.opencart.bases;
 
 import automationFramework.tests.BaseTest;
 import org.testng.annotations.BeforeMethod;
-import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
+import us.abstracta.opencart.pageObjectsHandler.OpencartPageObjectsHandler;
 import us.abstracta.opencart.pages.HomePage;
 
 public class OpencartBaseTest extends BaseTest {

@@ -1,4 +1,4 @@
-package us.abstracta.opencart.page_objects_handler;
+package us.abstracta.opencart.pageObjectsHandler;
 
 import automationFramework.handlers.PageObjectsHandler;
 import com.applitools.eyes.Eyes;

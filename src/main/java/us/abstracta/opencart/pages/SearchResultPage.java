@@ -3,7 +3,7 @@ package us.abstracta.opencart.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import us.abstracta.opencart.bases.OpencartBasePage;
-import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
+import us.abstracta.opencart.pageObjectsHandler.OpencartPageObjectsHandler;
 
 public class SearchResultPage extends OpencartBasePage{
 

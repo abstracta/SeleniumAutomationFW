@@ -1,8 +1,8 @@
 package us.abstracta.opencart.bases;
 
-import automationFramework.page_objects.BaseElement;
+import automationFramework.pageObjects.BaseElement;
 import org.openqa.selenium.WebDriver;
-import us.abstracta.opencart.page_objects_handler.OpencartPageObjectsHandler;
+import us.abstracta.opencart.pageObjectsHandler.OpencartPageObjectsHandler;
 
 public class OpencartBaseElement extends BaseElement{
 
