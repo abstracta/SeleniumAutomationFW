@@ -38,73 +38,58 @@ public abstract class DatabaseConnection {
         }
     }
 
-    public String executeSingleResultQuery(String query) {
+    public String executeSingleResultQuery(String query) throws SQLException {
         String result = StringUtils.EMPTY;
         try {
-            try {
-                PreparedStatement preparedStatement = createPreparedStatement(query);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                if (resultSet.next()) {
-                    result = resultSet.getString(1);
-                }
-            }
-            catch (Exception e) {
-                System.out.print("Error: " + e.getMessage());
-            }
-            finally {
-                close();
+            PreparedStatement preparedStatement = createPreparedStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                result = resultSet.getString(1);
             }
         }
         catch (SQLException e) {
-            System.out.print("Error " + e.getMessage());
+            System.out.print("Error: " + e.getMessage());
+        }
+        finally {
+            close();
         }
         return result;
     }
 
-    public List<String> executeMultipleResultQuery(String query) {
+    public List<String> executeMultipleResultQuery(String query) throws SQLException {
         List<String> resultList = new LinkedList<String>();
         try {
-            try {
-                PreparedStatement preparedStatement = createPreparedStatement(query);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    resultList.add(resultSet.getString(1));
-                }
-            }
-            catch (Exception e) {
-                System.out.print("Error " + e.getMessage());
-            }
-            finally {
-                close();
+            PreparedStatement preparedStatement = createPreparedStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                resultList.add(resultSet.getString(1));
             }
         }
         catch (SQLException e) {
             System.out.print("Error " + e.getMessage());
+        }
+        finally {
+            close();
         }
         return resultList;
     }
 
-    public Map<String, String> executeManyValuesQuery(String query, List<String> values) {
+    public Map<String, String> executeManyValuesQuery(String query, List<String> values) throws SQLException {
         Map<String, String> resultMap = new HashMap<>();
         try {
-            try {
-                PreparedStatement preparedStatement = createPreparedStatement(query);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                if(resultSet.next()) {
-                    for(int i = 1; i <= values.size(); i++){
-                        resultMap.put(values.get(i - 1), resultSet.getString(i));
-                    }
+            PreparedStatement preparedStatement = createPreparedStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                for(int i = 1; i <= values.size(); i++){
+                    resultMap.put(values.get(i - 1), resultSet.getString(i));
                 }
-            }
-            catch (Exception e) {
-                System.out.print("Error " + e.getMessage());
-            }
-            finally {
-                close();
             }
         }
         catch (SQLException e) {
             System.out.print("Error " + e.getMessage());
+        }
+        finally {
+            close();
         }
         return resultMap;
     }
