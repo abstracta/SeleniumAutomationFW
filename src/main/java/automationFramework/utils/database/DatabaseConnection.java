@@ -9,10 +9,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import static automationFramework.utils.Utils.applyDefaultIfMissing;
+
 public abstract class DatabaseConnection {
 
     protected Connection connection;
-    protected static GetProperties properties = new GetProperties();
+    private static String environment = applyDefaultIfMissing(System.getProperty("environment"), "QA");
+    protected static GetProperties properties = new GetProperties(environment);
     protected static String databaseServer = properties.getString("DB_SERVER");
     protected static String databaseUser = properties.getString("DB_USER");
     protected static String databasePassword = properties.getString("DB_PASSWORD");

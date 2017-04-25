@@ -11,7 +11,7 @@ To run this project you will need to have installed in your machine:
 
 Maven Execution:
 
-"mvn clean test -Dsuite= TESTNG_SUITE_TO_RUN"
+"mvn clean test -Dsuite= TESTNG_SUITE_TO_RUN -Denvironment= ENVIRONMENT_TO_RUN_AGAINST"
 
 Contact :
 

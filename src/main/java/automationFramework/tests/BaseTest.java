@@ -17,11 +17,14 @@ import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
 
+import static automationFramework.utils.Utils.applyDefaultIfMissing;
+
 public class BaseTest {
 
     protected WebDriver driver;
     protected Eyes eyes;
-    private static GetProperties properties = new GetProperties();
+    private static String environment = applyDefaultIfMissing(System.getProperty("environment"), "QA");
+    protected static GetProperties properties = new GetProperties(environment);
     private static String browser = properties.getString("BROWSER").toUpperCase();;
     private static String appName = properties.getString("APP_NAME");
     private static String apiKey = properties.getString("API_KEY");

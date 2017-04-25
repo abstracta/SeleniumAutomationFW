@@ -9,11 +9,10 @@ public class GetProperties {
 
     private Properties prop = new Properties();
 
-    public GetProperties() {
-
-        InputStream in = getClass().getResourceAsStream("/config.properties");
+    public GetProperties(String propName) {
 
         try {
+            InputStream in = getClass().getResourceAsStream("/config_" + propName.toUpperCase() + ".properties");
             prop.load(in);
         } catch (FileNotFoundException e) {
             System.out.println("The property file was not found");

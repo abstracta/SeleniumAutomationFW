@@ -10,11 +10,14 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static automationFramework.utils.Utils.applyDefaultIfMissing;
+
 public abstract class BasePage {
 
     protected static WebDriver driver;
     protected static Eyes eyes;
-    protected static GetProperties properties = new GetProperties();
+    private static String environment = applyDefaultIfMissing(System.getProperty("environment"), "QA");
+    protected static GetProperties properties = new GetProperties(environment);
 
     public BasePage(WebDriver driver) {
         BasePage.driver = driver;
