@@ -32,9 +32,15 @@ public class BaseTest {
         BrowserType browserType = BrowserType.valueOf(browser.toUpperCase());
         DesiredCapabilities capabilities;
         String baseline = method.getName();
-        String batchName = (!System.getenv("JOB_NAME").isEmpty())? System.getenv("JOB_NAME") : "Local";
+        String batchName;
+        try {
+            batchName = System.getenv("JOB_NAME");
+            batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
+        }
+        catch (NullPointerException e){
+            batchName = "Local";
+        }
         batch = new BatchInfo(batchName);
-        batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
         configureApplitoolsEyes();
         switch (browserType){
             case FIREFOX:

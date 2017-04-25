@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.lang3.StringUtils;
 
 import static automationFramework.utils.Constants.LONG_TIMEOUT;
 import static automationFramework.utils.Constants.SHORT_TIMEOUT;
@@ -75,14 +76,14 @@ public class WebDriverUtils {
     }
 
     public static void selectByText(WebElement comboBox, String text){
-        if (!text.isEmpty()) {
+        if (StringUtils.isNotEmpty(text)) {
             Select select = new Select(comboBox);
             select.selectByVisibleText(text);
         }
     }
 
     public static void selectByValue(WebElement comboBox, String value){
-        if (!value.isEmpty()) {
+        if (StringUtils.isNotEmpty(value)) {
             Select select = new Select(comboBox);
             select.selectByValue(value);
         }
