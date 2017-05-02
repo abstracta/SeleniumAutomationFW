@@ -1,11 +1,11 @@
 package automationFramework.tests;
 
 import automationFramework.utils.GetProperties;
+import automationFramework.utils.datatypes.BrowserType;
 import com.applitools.eyes.BatchInfo;
 import com.applitools.eyes.Eyes;
 import com.applitools.eyes.MatchLevel;
 import org.openqa.selenium.WebDriver;
-import automationFramework.utils.datatypes.BrowserType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,16 +21,16 @@ import static automationFramework.utils.Utils.applyDefaultIfMissing;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected Eyes eyes;
     private static String environment = applyDefaultIfMissing(System.getProperty("environment"), "QA");
     protected static GetProperties properties = new GetProperties(environment);
-    private static String browser = properties.getString("BROWSER").toUpperCase();;
+    private static String browser = properties.getString("BROWSER").toUpperCase();
     private static String appName = properties.getString("APP_NAME");
     private static String apiKey = properties.getString("API_KEY");
     private BatchInfo batch;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod
     public void setUp(Method method) throws Exception {
         BrowserType browserType = BrowserType.valueOf(browser.toUpperCase());
         DesiredCapabilities capabilities;
@@ -39,13 +39,12 @@ public class BaseTest {
         try {
             batchName = System.getenv("JOB_NAME");
             batch.setId(System.getenv("APPLITOOLS_BATCH_ID"));
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             batchName = "Local";
         }
         batch = new BatchInfo(batchName);
         configureApplitoolsEyes();
-        switch (browserType){
+        switch (browserType) {
             case FIREFOX:
                 capabilities = DesiredCapabilities.firefox();
                 driver = new FirefoxDriver(capabilities);
@@ -79,18 +78,17 @@ public class BaseTest {
             driver.manage().window().maximize();
             driver = eyes.open(driver, appName, baseline);
             navigateToHome();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    private void navigateToHome(){
+    private void navigateToHome() {
         String BASE_URL = properties.getString("BASE_URL");
         driver.get(BASE_URL);
     }
 
-    private void configureApplitoolsEyes(){
+    private void configureApplitoolsEyes() {
         eyes = new Eyes();
         eyes.setApiKey(apiKey);
         eyes.setMatchLevel(MatchLevel.LAYOUT2);
@@ -98,14 +96,14 @@ public class BaseTest {
         eyes.setBatch(batch);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void tearDown() throws Exception {
         try {
             eyes.close();
-        }
-        finally {
+        } finally {
             eyes.abortIfNotClosed();
             driver.quit();
+
         }
     }
 }

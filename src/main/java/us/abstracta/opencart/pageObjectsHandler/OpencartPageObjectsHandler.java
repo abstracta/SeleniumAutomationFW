@@ -22,14 +22,14 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
         super(driver, eyes);
     }
 
-    public static OpencartPageObjectsHandler getInstance(WebDriver driver, Eyes eyes){
-        if (instance == null){
+    public static OpencartPageObjectsHandler getInstance(WebDriver driver, Eyes eyes) {
+        if (instance == null) {
             instance = new OpencartPageObjectsHandler(driver, eyes);
         }
         return instance;
     }
 
-    public HomePage getHomePage(){
+    public HomePage getHomePage() {
         if (homePage == null) {
             homePage = new HomePage(driver, instance);
             PageFactory.initElements(driver, homePage);
@@ -38,7 +38,7 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
         return homePage;
     }
 
-    public SearchResultPage getSearchResultPage(){
+    public SearchResultPage getSearchResultPage() {
         if (searchResultPage == null) {
             searchResultPage = new SearchResultPage(driver, instance);
             PageFactory.initElements(driver, searchResultPage);
@@ -47,7 +47,7 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
         return searchResultPage;
     }
 
-    public Header getHeader(){
+    public Header getHeader() {
         if (header == null) {
             header = new Header(driver, instance);
             PageFactory.initElements(driver, header);
@@ -55,11 +55,16 @@ public class OpencartPageObjectsHandler extends PageObjectsHandler {
         return header;
     }
 
-    public Cart getCart(){
+    public Cart getCart() {
         if (cart == null) {
             cart = new Cart(driver, instance);
             PageFactory.initElements(driver, cart);
         }
         return cart;
+    }
+
+    public static void setInstanceNull() {
+
+        instance = null;
     }
 }
