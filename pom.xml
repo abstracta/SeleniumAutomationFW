@@ -63,7 +63,7 @@
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/suites/${suite}.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/us/abstracta/opencart/suites/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
